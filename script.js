@@ -60,6 +60,7 @@ let currentSize = 18; // Initial font size in px
 let currentPadding = 12; // Initial padding in px
 
 function handleNoInteraction() {
+    noBtn.style.position = "absolute";
     const wrapper = document.querySelector(".wrapper");
     const wrapperRect = wrapper.getBoundingClientRect();
     const noBtnRect = noBtn.getBoundingClientRect();
