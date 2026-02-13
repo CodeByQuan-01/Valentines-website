@@ -16,6 +16,13 @@ yesBtn.addEventListener("click", () => {
 
     // Hide the No button
     noBtn.style.display = "none";
+
+    // Trigger confetti
+    confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 }
+    });
 });
 
 const muteBtn = document.getElementById("mute-btn");
@@ -30,8 +37,29 @@ muteBtn.addEventListener("click", () => {
     }
 });
 
-// Make the No button move randomly on hover
-noBtn.addEventListener("mouseover", () => {
+const messages = [
+    "Are you sure?",
+    "Really?",
+    "Think again!",
+    "Last chance!",
+    "Surely not?",
+    "You might regret this!",
+    "Give it another thought!",
+    "Are you absolutely certain?",
+    "This could be a mistake!",
+    "Have a heart!",
+    "Don't be so cold!",
+    "Change of heart?",
+    "Wouldn't you reconsider?",
+    "Is that your final answer?",
+    "You're breaking my heart ;(",
+];
+
+let messageIndex = 0;
+let currentSize = 18; // Initial font size in px
+let currentPadding = 12; // Initial padding in px
+
+function handleNoInteraction() {
     const wrapper = document.querySelector(".wrapper");
     const wrapperRect = wrapper.getBoundingClientRect();
     const noBtnRect = noBtn.getBoundingClientRect();
@@ -46,4 +74,34 @@ noBtn.addEventListener("mouseover", () => {
 
     noBtn.style.left = randomX + "px";
     noBtn.style.top = randomY + "px";
-});
+
+    // Change text
+    noBtn.innerText = messages[messageIndex];
+    messageIndex = (messageIndex + 1) % messages.length;
+
+    // Grow the Yes button
+    currentSize += 5;
+    currentPadding += 2;
+    yesBtn.style.fontSize = `${currentSize}px`;
+    yesBtn.style.padding = `${currentPadding}px ${currentPadding * 2.5}px`;
+}
+
+// Make the No button move and change text on interaction
+noBtn.addEventListener("mouseover", handleNoInteraction);
+noBtn.addEventListener("click", handleNoInteraction);
+
+// Create floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 500);
