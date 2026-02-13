@@ -5,11 +5,29 @@ const gif = document.querySelector(".gif");
 
 // Change text and gif when the Yes button is clicked
 yesBtn.addEventListener("click", () => {
-    question.innerHTML = "Haha... I guess, the cupid got us this time <3";
+    question.innerHTML = "See you on Feb 14th! 💌";
     gif.src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3RoZnY5aWhtMnRjYmhqYjFvMTlyZ3NpdGl2YTVrc3N6azVhaDBpbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif";
+
+    const audio = document.getElementById("bg-music");
+    audio.play();
+
+    // Hide the Yes button
+    yesBtn.style.display = "none";
 
     // Hide the No button
     noBtn.style.display = "none";
+});
+
+const muteBtn = document.getElementById("mute-btn");
+muteBtn.addEventListener("click", () => {
+    const audio = document.getElementById("bg-music");
+    if (audio.muted) {
+        audio.muted = false;
+        muteBtn.innerText = "Mute 🔇";
+    } else {
+        audio.muted = true;
+        muteBtn.innerText = "Unmute 🔊";
+    }
 });
 
 // Make the No button move randomly on hover

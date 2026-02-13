@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentine ?</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<div class="wrapper">
-  <h2 class="question">Do you love me?</h2>
-  <img class="gif" alt="gif" src="https://media.giphy.com/media/MWXK3DOcHWXRdDTdud/giphy.gif?cid=ecf05e47m0r0aeqwctjm6gtk5a7nrhy0rndaeljijbkndze3&ep=v1_gifs_related&rid=giphy.gif&ct=g" />
-  <div class="btn-group">
-    <button class="yes-btn">Yes</button>
-    <button class="no-btn">No</button>
+  <div class="wrapper">
+    <h2 class="question">Do you love me?</h2>
+    <img class="gif" alt="gif"
+      src="https://media.giphy.com/media/MWXK3DOcHWXRdDTdud/giphy.gif?cid=ecf05e47m0r0aeqwctjm6gtk5a7nrhy0rndaeljijbkndze3&ep=v1_gifs_related&rid=giphy.gif&ct=g" />
+    <div class="btn-group">
+      <button class="yes-btn">Yes</button>
+      <button class="no-btn">No</button>
+    </div>
   </div>
-</div>
-<script src="script.js"></script>
+  <audio id="bg-music" src="song.mp3" loop></audio>
+  <button id="mute-btn"
+    style="position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background-color: #fff; border: none; border-radius: 5px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Mute
+    🔇</button>
+  <script src="script.js"></script>
 </body>
+
 </html>
