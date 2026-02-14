@@ -125,3 +125,24 @@ button:focus {
     background-color: #e43e3e;
     transform: scale(1.05);
 }
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    pointer-events: auto;
+    z-index: 1000;
+}
+
+.footer a {
+    color: #e91e63;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
